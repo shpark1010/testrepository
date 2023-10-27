@@ -22,9 +22,9 @@ jobs:
       - name: Download gradlew
         run: |
           wget https://raw.githubusercontent.com/gradle/gradle/master/gradlew
-          chmod +x gradle
+          chmod +x gradlew
       - name: Build with Gradle
-        run: ./gradle build -x test
+        run: ./gradlew build -x test
       - name: Upload build artifact
         uses: actions/upload-artifact@v2
         with:
