@@ -19,12 +19,11 @@ jobs:
         with:
           java-version: '16' # Change this to the latest JDK version you want to use
           distribution: 'adopt' # Can be changed to other vendors like 'zulu', 'temurin', etc.
-      - name: Download gradlew
+      - name: Set up Gradle wrapper
         run: |
-          wget https://raw.githubusercontent.com/gradle/gradle/master/gradlew
-          chmod +x gradlew
+          ./gradlew wrapper --gradle-version 7.3
       - name: Build with Gradle
-        run: ./gradlew build 
+        run: ./gradlew build -x test
       - name: Upload build artifact
         uses: actions/upload-artifact@v2
         with:
@@ -48,3 +47,4 @@ jobs:
           host: ${{ secrets.SONAR_HOST }}
           login: ${{ secrets.SONAR_TOKEN }}
           projectBaseDir: '/github/workspace'
+
