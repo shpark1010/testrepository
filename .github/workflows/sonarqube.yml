@@ -21,12 +21,10 @@ jobs:
           distribution: 'adopt' # Can be changed to other vendors like 'zulu', 'temurin', etc.
       - name: Download gradlew
         run: |
-          wget https://services.gradle.org/distributions/gradle-7.3-all.zip
-          unzip -d gradle gradle-7.3-all.zip
-          export PATH=$PATH:$PWD/gradle/gradle-7.3/bin
-          chmod +x gradlew
+          wget https://raw.githubusercontent.com/gradle/gradle/master/gradlew
+          chmod +x gradle
       - name: Build with Gradle
-        run: ./gradlew build -x test
+        run: ./gradle build -x test
       - name: Upload build artifact
         uses: actions/upload-artifact@v2
         with:
@@ -50,5 +48,3 @@ jobs:
           host: ${{ secrets.SONAR_HOST }}
           login: ${{ secrets.SONAR_TOKEN }}
           projectBaseDir: '/github/workspace'
-
-
