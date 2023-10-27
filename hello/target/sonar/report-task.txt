@@ -1,6 +1,0 @@
-projectKey=Test_Project
-serverUrl=http://15.164.231.70:9000
-serverVersion=9.0.1.46107
-dashboardUrl=http://15.164.231.70:9000/dashboard?id=Test_Project
-ceTaskId=AYtvjI1_s9_iJn0aS0QL
-ceTaskUrl=http://15.164.231.70:9000/api/ce/task?id=AYtvjI1_s9_iJn0aS0QL
