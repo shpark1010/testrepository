@@ -1,9 +1,8 @@
+name: SonarQube Workflow
+
 on:
-  # schedule:
-    # - cron: '0 * * * 1'
   workflow_dispatch:
 
-name: SonarQube Workflow
 jobs:
   build:
     name: Build
@@ -17,7 +16,7 @@ jobs:
         architecture: x64
         targets: 'JAVA_HOME'
     - name: Grant execute permission for gradlew
-      run: chmod +x gradlew
+      run: chmod +x gradlew  # Add this line to grant execute permission
     - name: Build with Gradle
       run: ./gradlew build -x test
     - name: Upload build artifact
@@ -32,7 +31,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - name: Donwload build artifact
+    - name: Download build artifact
       uses: actions/download-artifact@v2
       with:
         name: build
