@@ -6,7 +6,7 @@ pipeline{
     stages{
         stage('checkout the code'){
             steps{
-                git url:'https://github.com/bcreddydevops/chinna-app.git', branch: 'main'
+                git url:'https://github.com/shpark1010/testrepository.git', branch: 'main'
             }
         }
         stage('build the code'){
@@ -16,7 +16,7 @@ pipeline{
         }
         stage('Generate sonarqube-analysis'){
             steps{
-                withSonarQubeEnv(installationName: 'sonarqube-8', credentialsId: 'jenkins-sonar-token') {
+                withSonarQubeEnv(installationName: 'sonarqube', credentialsId: 'jenkins-sonar-token') {
                  sh 'mvn sonar:sonar'
                 }
             }
